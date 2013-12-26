@@ -1,0 +1,33 @@
+{
+  "name": "jayli-server",
+  "author": {
+    "name": "SSI Server",
+    "email": "bachi@taobao.com"
+  },
+  "version": "0.0.9",
+  "description": "A node.js module for delivering static files,width ssi.",
+  "keywords": [
+    "web",
+    "server"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "main": "lib/jayli.js",
+  "dependencies": {
+    "iconv-lite": "",
+	"juicer":""
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "optionalDependencies": {},
+  "readmeFilename": "README.md",
+  "_id": "jayli-server@0.0.8",
+  "dist": {
+    "shasum": ""
+  },
+  "_from": "jayli-server@",
+  "_resolved": "https://registry.npmjs.org/bachi/-/jayli-server-0.0.1.tgz"
+}
