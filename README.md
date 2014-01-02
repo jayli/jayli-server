@@ -104,6 +104,14 @@ output
 		<li>(index: 3)</li>
 	</ul>
 
+### PHP support
+
+PHP file is ok。get url query string:
+
+	if(isset($argv)){
+		$_GET = (array)(json_decode($argv[2]));
+	}
+	echo $_GET['a'];
 
 ### jayli.deliver(webroot, req, res)
 
