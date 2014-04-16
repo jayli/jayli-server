@@ -63,8 +63,60 @@ Example from example/basic.js:
 ## API Docs
 
 ### ssi included
+	
+#### 代码样例    
+    <!--#include path="asdf.html"  -->
+    <!--#include file="../sub.html" repeat="5" -->
+    <!--#include file="../sub.html" repeat="5"
+        $name="zhang-san" 
+        $gender="f"
+        $age="20" 
+        --> 
 
-	<!--#include path="asdf.html" -->
+#### 使用说明        
+##### 路径
+-------------------------------------------------
+    通过file或属性制定的路径若以"."或".."开头则视为相对
+    路径，否则视为据对路径，当视为绝对路径时，以项目
+    的src目录作为根目录. 所以上面的代码用绝对路径表示
+    可以这样写：
+       <!--include file="/page/foo/sub.html"-->
+    或者
+       <!--include file="page/foo/sub.html"-->
+    
+##### 重复
+-----------------------------------------------
+    可以通过repeat参数来指定重复次数比如:
+       <!--#include file="../sub.html" repeat="5" -->
+    
+##### 简单变量插入
+------------------------------------------------
+    可以通过添加以$开头的属性指定插入文件中可以使用的变量，比如：
+       <!--#include file="../sub.html" repeat="5"
+           $name="zhang-san" 
+           $gender="f"
+           $age="20" 
+           --> 
+    
+    那么sub.html就可以以如下格式使用这些变量:
+       index  : <%=$__index__ + 1%>
+       colum  : <%=$__index__ % 3%>
+       total  : <%=$__count__%>
+       gender : <%=$gender == 'f' ? '男' : '女' %>
+       name   : <%=$name%>
+       age    : <%=$age%> 
+    
+    上面的例子中有两个变量:$__count__、$__index__,
+    这两个变量是系统自动添加进去的，分别代表文件被
+    重复的次数以及当前重复索引(以0为起始）.
+    
+     在使用简单变量插入功能时可以使用如下运算符:
+        +  -  *  /  %  >=  <=  !=  >  <  ?:
+     注意： 不支持括号，不支持多个三目运算符的嵌套. 
+    
+    注意: 在本程序中凡是以双下划线* "__"开头的变量名都
+    是系统自动注入的，在inc-vars中不要使用这样变量名，
+    否则有可能会被覆盖掉.
 
 ### mockdata
 
