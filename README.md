@@ -38,8 +38,9 @@ Example from example/basic.js:
         .before(function() {
           console.log('Received Request');
         })
-        .after(function(statCode) {
+        .after(function(statCode, filepath, fileBuffer, encoding) {
           log(statCode, req.url, ip);
+          return fileBuffer;
         })
         .error(function(statCode, msg) {
           res.writeHead(statCode, {'Content-Type': 'text/plain'});
@@ -181,9 +182,18 @@ This returns an object with several functions that you can call, to modify how t
 
 Fires if a matching file was found in the `webroot` and is about to be delivered. The delivery can be canceled by returning `false` from within the callback.
 
-#### after(callback(statCode))
+#### after(callback(statCode, filepath, fileBuffer, encoding))
 
 Fires after a file has been successfully delivered from the `webroot`. `statCode` contains the numeric HTTP status code that was sent to the client. You must close the connection yourself if the error callback fires!
+
+> after 回调现已支持将文件 Buffer 对外暴露出来，从而进行按需处理（如替换页面引入的静态资源、修改 DOM 等）之后再响应回客户端。
+> 
+> 参数:
+> 	- statCode: 状态码；
+> 	- filepath: 文件路径；
+> 	- fileBuffer: 文件Buffer；
+> 	- encoding: 文件编码
+
 
 #### error(callback(statCode, msg))
 
