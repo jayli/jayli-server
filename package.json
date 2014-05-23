@@ -4,7 +4,7 @@
     "name": "SSI Server",
     "email": "bachi@taobao.com"
   },
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "A node.js module for delivering static files,width ssi,mock and php",
   "keywords": [
     "web",
@@ -15,10 +15,10 @@
   },
   "main": "lib/jayli.js",
   "dependencies": {
-    "php-template": "~0.0.2",
-    "joinbuffers": "~0.1.1",
     "iconv-lite": "",
-    "juicer": ""
+    "joinbuffers": "~0.1.1",
+    "juicer": "",
+    "php-template": "~0.0.2"
   },
   "devDependencies": {},
   "engines": {
