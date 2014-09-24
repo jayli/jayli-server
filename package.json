@@ -4,7 +4,7 @@
     "name": "SSI Server",
     "email": "bachi@taobao.com"
   },
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "A node.js module for delivering static files,width ssi,mock and php",
   "keywords": [
     "web",
